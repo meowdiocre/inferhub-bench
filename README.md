@@ -59,11 +59,13 @@ Three suites ship in `prompts/`:
 | `guardrails.yaml` | 16 harmful + 8 benign | Direct asks and classic single-turn evasions |
 | `jailbreaks-glm.yaml` | 18 harmful | Techniques published for the GLM family: ENI persona, Crescendo, Chinese-language |
 | `jailbreaks-2026.yaml` | 13 harmful | 2026 wave: Policy Puppetry, Echo Chamber, Fallacy Failure, GSB-01 |
+| `jailbreaks-deepseek.yaml` | 17 harmful | Techniques published for DeepSeek: H-CoT, ENI-Lite, leaked-prompt probes |
 
 All suites share one schema. Each case has `id`, `category`, `technique`, and
 `prompt` (or `turns` for multi-turn). `technique` is `family[:variant]`, where
 family is the attack class: `direct`, `persona`, `framing`, `encoding`, `config`,
-`multiturn`, `language`, `injection`, `reasoning`.
+`multiturn`, `language`, `injection`, `reasoning`, `h_cot`, `sys_exfil`,
+`deceptive_delight`, `bad_likert_judge`, `sec_3_11`, `blacklist`.
 
 ## Layout
 
