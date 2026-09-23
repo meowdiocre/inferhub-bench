@@ -5,7 +5,7 @@ import asyncio
 import json
 import os
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 import httpx
@@ -124,6 +124,8 @@ class InferHubClient:
 def stats(values: list[float]) -> dict[str, float]:
     """mean/min/p50/max — robust for small n."""
     import statistics
+    if not values:
+        return {"n": 0, "mean": 0.0, "min": 0.0, "p50": 0.0, "max": 0.0}
     vs = sorted(values)
     return {
         "n": len(vs),
