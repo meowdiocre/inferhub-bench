@@ -22,6 +22,8 @@ uv run python bench.py perf       --model cbcn/glm-5.3-flash --runs 3
 uv run python bench.py guardrails --suite prompts/jailbreaks-glm.yaml
 uv run python bench.py report     --perf-json results/perf-*.json \
                                   --guardrails-json results/guardrails-*.json
+uv run python compare.py                                     # all suites × default models
+uv run python compare.py --models cbcn/glm-5.3 cbcn/kimi-k3  # subset
 ```
 
 Outputs go to `results/`: one JSON per suite, plus a combined `report-*.md`.
@@ -80,6 +82,7 @@ Results for `cbcn/glm-5.3-flash` (2026-09-23):
 - Generic suite: ASR 0.0%, over-refusal 0.0%.
 - GLM-targeted suite: ASR 19.4%. See `docs/glm-targeted-attacks.md`.
 - 2026-technique suite: ASR 26.9%. See `docs/modern-techniques-2026.md`.
+- 4-model comparison (glm-5.3, deepseek-v4.1-flash, kimi-k3): `docs/model-comparison.md`.
 - Deployment recommendations: `docs/deployment-notes.md`.
 
 Note: this gateway route shows high TTFT variance (2–51 s).
